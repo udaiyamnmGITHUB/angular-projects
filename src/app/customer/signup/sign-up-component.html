@@ -9,17 +9,17 @@
           <div class="col-12 my-3" *ngIf="control.type === 'text'">
             <label [for]="control.type" class="form-label">{{ control.label }}</label>
             <input [type]="control.type" [formControlName]="control.name" [value]="control.value" class="form-control"
-              required={{control.validators?.required}} minlength={{control.validators?.minLength}}
-              maxlength={{control.validators?.maxLength}}>
+              required={{control.validators.required}} minlength={{control.validators.minLength}}
+              maxlength={{control.validators.maxLength}}>
 
             <div class="invalid-feedback"
               *ngIf="userSignupForm.touched && userSignupForm.controls[control.name]?.invalid">
 
               <span *ngIf="userSignupForm.controls[control.name]?.errors?.['required']"> Please enter a valid
-                {{control.label?.toLowerCase()}}</span>
+                {{control.label.toLowerCase()}}</span>
               <span *ngIf="userSignupForm.controls[control.name]?.errors?.['minlength']">
-                {{control.label?.toLowerCase()}} must be at least {{control.validators?.minLength}} characters long and
-                maximum {{control.validators?.maxLength}} characters</span>
+                {{control.label.toLowerCase()}} must be at least {{control.validators.minLength}} characters long and
+                maximum {{control.validators.maxLength}} characters</span>
 
             </div>
           </div>
@@ -27,16 +27,16 @@
           <div class="col-12 my-3" *ngIf="control.type === 'email'">
             <label [for]="control.type" class="form-label">{{ control.label }}</label>
             <input [type]="control.type" [formControlName]="control.name" [value]="control.value" class="form-control"
-              placeholder="you@example.com" required={{control.validators?.required}}
-              minlength={{control.validators?.minLength}} maxlength={{control.validators?.maxLength}}>
+              placeholder="you@example.com" required={{control.validators.required}}
+              minlength={{control.validators.minLength}} maxlength={{control.validators.maxLength}}>
             <div class="invalid-feedback"
               *ngIf="userSignupForm.touched && userSignupForm.controls[control.name]?.invalid">
 
               <span *ngIf="userSignupForm.controls[control.name]?.errors?.['required']"> Please enter a valid
-                {{control.label?.toLowerCase()}}</span>
+                {{control.label.toLowerCase()}}</span>
               <span *ngIf="userSignupForm.controls[control.name]?.errors?.['minlength']">
-                {{control.label?.toLowerCase()}} must be at least {{control.validators?.minLength}} characters long and
-                maximum {{control.validators?.maxLength}} characters</span>
+                {{control.label.toLowerCase()}} must be at least {{control.validators.minLength}} characters long and
+                maximum {{control.validators.maxLength}} characters</span>
 
             </div>
           </div>
