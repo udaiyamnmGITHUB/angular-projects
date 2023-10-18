@@ -6,7 +6,8 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./layout/layout.module').then((mod) => mod.LayoutModule),
-  }
+  },
+  { path: '**', redirectTo: '/customer', pathMatch: 'full' }
 ];
 
 
