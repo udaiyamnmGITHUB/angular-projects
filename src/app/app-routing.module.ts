@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LayoutModule } from './layout/layout.module';
+import { LayoutModule } from '../_shared/layout/layout.module';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./layout/layout.module').then((mod) => mod.LayoutModule),
+    loadChildren: () => import('../_shared/layout/layout.module').then((mod) => mod.LayoutModule),
   },
   { path: '**', redirectTo: '/customer', pathMatch: 'full' }
 ];

@@ -9,15 +9,15 @@ const routes: Routes = [
     children: [
       {
         path: 'customer',
-        loadChildren: () => import('../customer/customer.module').then((mod) => mod.CustomerModule),
+        loadChildren: () => import('../../app/customer/customer.module').then((mod) => mod.CustomerModule),
       },
       {
         path: 'product',
-        loadChildren: () => import('../product/product.module').then((mod) => mod.ProductModule),
+        loadChildren: () => import('../../app/product/product.module').then((mod) => mod.ProductModule),
       },
       {
         path: 'order',
-        loadChildren: () => import('../order/order.module').then((mod) => mod.OrderModule),
+        loadChildren: () => import('../../app/order/order.module').then((mod) => mod.OrderModule),
       }
 
     ]
