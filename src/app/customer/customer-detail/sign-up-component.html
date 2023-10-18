@@ -42,11 +42,12 @@
           </div>
           <!-- checkbox type questions-->
           <div class="form-check" *ngIf="control.type === 'checkbox'">
-            <input [type]="control.type" class="form-check-input" value={{control.value}} [checked]="control.value">
+            <input [type]="control.type" class="form-check-input" [checked]="control.value"
+              [formControlName]="control.name" required={{control.validators?.requiredTrue}}>
             <label class="form-check-label" for="save-info">Agreed to the terms & conditions </label>
           </div>
         </div>
-        <button class="mt-2 w-50 btn btn-primary btn-lg" type="submit">Submit</button>
+        <button class=" mt-5 w-50 btn btn-primary btn-lg" type="submit">Submit</button>
       </form>
 
     </ng-container>

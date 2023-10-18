@@ -8,7 +8,7 @@
       "validators": {
         "required": true,
         "minLength": 3,
-        "maxLength": 10
+        "maxLength": 15
       }
     },
     {
@@ -18,7 +18,7 @@
       "type": "text",
       "validators": {
         "minLength": 3,
-        "maxLength": 10
+        "maxLength": 15
       }
     },
     {
@@ -41,13 +41,6 @@
         "minLength": 8,
         "maxLength": 12
       }
-    },
-    {
-      "name": "agreeTerms",
-      "label": "Do you agree?",
-      "value": "false",
-      "type": "checkbox",
-      "validators": { "required": true}
     }
   ]
 }

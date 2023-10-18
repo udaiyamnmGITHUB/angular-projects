@@ -4,13 +4,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { JsonFormControls, JsonFormData } from 'src/_shared/layout/model/json-ui.model';
 import { Customer } from '../model/customer.model';
 import { CustomerApiService } from '../service/customer-api.service';
-import { CustomerFormUtilityService } from '../service/form-service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-layout',
   templateUrl: './sign-up-component.html',
-  providers: [CustomerApiService, CustomerFormUtilityService]
+  providers: [CustomerApiService]
 })
 export class SignupComponent implements OnInit, OnDestroy {
 
@@ -19,14 +17,14 @@ export class SignupComponent implements OnInit, OnDestroy {
   public userSignupForm: FormGroup = this.fb.group({});
   @ViewChild('customerFormElem') customerFormElem!: ElementRef;
 
-  constructor(private router: Router, private fb: FormBuilder, private customerApiService: CustomerApiService, private formUtilityService: CustomerFormUtilityService) { }
+  constructor(private fb: FormBuilder, private customerApiService: CustomerApiService) { }
 
 
   public ngOnInit(): void {
     this.customerApiService.getQuestionnaires()
       .subscribe({
         next: (formData: JsonFormData | any) => {
-          this.formUtilityService.createForm(formData.controls,  this.userSignupForm, this.fb);
+          this.createForm(formData.controls);
           this.jsonFormData = formData as JsonFormData;
         },
         error: (error: HttpErrorResponse) => {
@@ -41,9 +39,6 @@ export class SignupComponent implements OnInit, OnDestroy {
     this.enableValidationClass();
     
   if (this.userSignupForm.valid && this.userSignupForm.touched) {
-    console.log(this.userSignupForm.getRawValue());
-    localStorage.setItem('customerData', JSON.stringify(this.userSignupForm.getRawValue()));
-    this.router.navigate(['home/customer/detail']);
       this.customerApiService.signUp(this.userSignupForm.value)
         .subscribe({
           next: (customerDetails: Customer | any) => {
@@ -65,6 +60,8 @@ export class SignupComponent implements OnInit, OnDestroy {
       })
     }
   }
+
+
 
  public ngOnDestroy(): void {
     // HttpClient unsubscribes automatically

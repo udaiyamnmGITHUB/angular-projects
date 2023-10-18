@@ -7,7 +7,7 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('../_shared/layout/layout.module').then((mod) => mod.LayoutModule),
   },
-  { path: '**', redirectTo: '/customer', pathMatch: 'full' }
+  { path: '**', redirectTo: 'home/customer/signup', pathMatch: 'full' }
 ];
 
 
