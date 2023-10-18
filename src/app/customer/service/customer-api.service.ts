@@ -1,8 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Customer } from '../model/customer.model';
 import { JsonFormData } from 'src/_shared/layout/model/json-ui.model';
+import { Customer } from '../model/customer.model';
 @Injectable()
 
 export class CustomerApiService {

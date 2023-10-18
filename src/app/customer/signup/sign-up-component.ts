@@ -1,11 +1,11 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { JsonFormControls, JsonFormData } from 'src/_shared/layout/model/json-ui.model';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { JsonFormData } from 'src/_shared/layout/model/json-ui.model';
 import { Customer } from '../model/customer.model';
 import { CustomerApiService } from '../service/customer-api.service';
 import { CustomerFormUtilityService } from '../service/form-service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-layout',
