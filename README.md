@@ -1,4 +1,4 @@
-# CustomerRegistration
+# Customer Registration
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.6.
 
@@ -19,18 +19,13 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 ## The thoughts behind the implementation
+- This project showcases a user-friendly interface that allows customers to navigate through different screens related to customer, product, and order information. Additionally, users can sign up by filling out a form that collects their first name, last name, and email address.
 
-This project demonstrates a customer can navigate around customer, product and order screens. and also user can submit sign-up form that allows customers enter their first name, last name and
-email addres
+-  The signup form is built as a JSON-driven UI component, which makes it easy to extend by adding different types of input controls. Form validation is implemented using reactive forms, and appropriate error messages are displayed to users.
 
-- This signup UI component is built as a  JSON driven UI component
-- UI questionnaires can be simply extended by adding diff type input control
-- UI form validation is by using reactive form and appropriate error message is displayed
-- customer, product, order and layout modules are created 
-- lazy loading is applied to do code splitting - this would reduce initial load & improve the performance
-- created a high rich user UX signup form, with validation
-- injected services only at the component level 
+-  To improve performance, the project uses lazy loading to split the code into smaller chunks, reducing the initial load time. The project also includes modules for customer, product, order, and layout, making it easy to manage and maintain.
 
+-  The signup form provides a high-quality user experience, with rich features and validation. Services are injected only at the component level, ensuring that the project is efficient and scalable."
 
 
 ## What can be done more if I have more time?
