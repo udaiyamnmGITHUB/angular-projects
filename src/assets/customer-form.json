@@ -1,0 +1,53 @@
+{
+  "controls": [
+    {
+      "name": "firstName",
+      "label": "First name",
+      "value": "",
+      "type": "text",
+      "validators": {
+        "required": true,
+        "minLength": 3,
+        "maxLength": 10
+      }
+    },
+    {
+      "name": "lastName",
+      "label": "Last name",
+      "value": "",
+      "type": "text",
+      "validators": {
+        "minLength": 3,
+        "maxLength": 10
+      }
+    },
+    {
+      "name": "email",
+      "label": "Email",
+      "value": "",
+      "type": "email",
+      "validators": {
+        "minLength": 3,
+        "maxLength": 20
+      }
+    },
+    {
+      "name": "password",
+      "label": "Password",
+      "value": "",
+      "type": "text",
+      "validators": {
+        "required": true,
+        "minLength": 8,
+        "maxLength": 12
+      }
+    },
+    {
+      "name": "agreeTerms",
+      "label": "Do you agree?",
+      "value": "false",
+      "type": "checkbox",
+      "validators": { "required": true}
+    }
+  ]
+}

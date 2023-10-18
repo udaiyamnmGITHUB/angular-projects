@@ -1,4 +1,57 @@
 <div class="row justify-content-center">
+  <div #customerFormElem class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+    <h3 class="fw-bold mb-5 mt-4">Customer registration form</h3>
+
+    <ng-container *ngIf="jsonFormData">
+      <form class="needs-validation" novalidate [formGroup]="userSignupForm" (ngSubmit)="onSubmit()">
+        <div class="row g-3" *ngFor="let control of jsonFormData?.controls">
+          <!-- Name, text, numbers  -->
+          <div class="col-12 my-3" *ngIf="control.type === 'text'">
+            <label [for]="control.type" class="form-label">{{ control.label }}</label>
+            <input [type]="control.type" [formControlName]="control.name" [value]="control.value" class="form-control"
+              required={{control.validators?.required}} minlength={{control.validators?.minLength}} maxlength={{control.validators?.maxLength}}>
+
+            <div class="invalid-feedback" *ngIf="userSignupForm.touched && userSignupForm.controls[control.name]?.invalid">
+              
+              <span *ngIf="userSignupForm.controls[control.name]?.errors?.['required']"> Please enter a valid {{control.label?.toLowerCase()}}</span>
+              <span *ngIf="userSignupForm.controls[control.name]?.errors?.['minlength']"> {{control.label?.toLowerCase()}}  must be at least {{control.validators?.minLength}} characters long and maximum  {{control.validators?.maxLength}} characters</span>
+             
+            </div>
+          </div>
+        <!-- email can go here -->
+          <div class="col-12 my-3" *ngIf="control.type === 'email'">
+            <label [for]="control.type" class="form-label">{{ control.label }}</label>
+            <input [type]="control.type" [formControlName]="control.name" [value]="control.value" class="form-control"
+              placeholder="you@example.com" required={{control.validators?.required}} minlength={{control.validators?.minLength}} maxlength={{control.validators?.maxLength}}>
+              <div class="invalid-feedback" *ngIf="userSignupForm.touched && userSignupForm.controls[control.name]?.invalid">
+              
+                <span *ngIf="userSignupForm.controls[control.name]?.errors?.['required']"> Please enter a valid {{control.label?.toLowerCase()}}</span>
+                <span *ngIf="userSignupForm.controls[control.name]?.errors?.['minlength']"> {{control.label?.toLowerCase()}}  must be at least {{control.validators?.minLength}} characters long and maximum  {{control.validators?.maxLength}} characters</span>
+               
+              </div>
+          </div>
+      <!-- email can go here -->
+          <div class="form-check my-4" *ngIf="control.type === 'checkbox'">
+            <input [type]="control.type" class="form-check-input" required={{control.validators?.required}}>
+            <label class="form-check-label" for="save-info">Agreed to the terms & conditions </label>
+          </div>
+        </div>
+        <button class=" mt-5 w-50 btn btn-primary btn-lg" type="submit">Submit</button>
+      </form>
+
+    </ng-container>
+  </div>
+  <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp" class="img-fluid"
+      alt="Sample image">
+
+  </div>
+</div>
+
+
+
+<!-- <div class="row justify-content-center">
   <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
     <h3 class="fw-bold mb-5 mt-4">Customer registration form</h3>
     <form class="needs-validation" novalidate>
@@ -40,4 +93,4 @@
       class="img-fluid" alt="Sample image">
 
   </div>
-</div>
+</div> -->
