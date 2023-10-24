@@ -9,8 +9,8 @@
           <div class="col-12 my-3" *ngIf="control.type === 'text'">
             <label [for]="control.type" class="form-label">{{ control.label }}</label>
             <input [type]="control.type" [formControlName]="control.name" [value]="control.value" class="form-control"
-              required={{control.validators?.required}} minlength={{control.validators?.minLength}}
-              maxlength={{control.validators?.maxLength}}>
+              
+              >
 
             <div class="invalid-feedback"
               *ngIf="userSignupForm.touched && userSignupForm.controls[control.name]?.invalid">
@@ -27,8 +27,8 @@
           <div class="col-12 my-3" *ngIf="control.type === 'email'">
             <label [for]="control.type" class="form-label">{{ control.label }}</label>
             <input [type]="control.type" [formControlName]="control.name" [value]="control.value" class="form-control"
-              placeholder="you@example.com" required={{control.validators?.required}}
-              minlength={{control.validators?.minLength}} maxlength={{control.validators?.maxLength}}>
+              placeholder="you@example.com">
+              
             <div class="invalid-feedback"
               *ngIf="userSignupForm.touched && userSignupForm.controls[control.name]?.invalid">
 
@@ -43,7 +43,7 @@
           <!-- checkbox type questions-->
           <div class="form-check" *ngIf="control.type === 'checkbox'">
             <input [type]="control.type" class="form-check-input" [checked]="control.value"
-              [formControlName]="control.name" required={{control.validators?.requiredTrue}}>
+              [formControlName]="control.name">
             <label class="form-check-label" for="save-info">Agreed to the terms & conditions </label>
           </div>
         </div>
