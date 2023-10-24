@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { JsonFormData } from 'src/_shared/layout/model/json-ui.model';
 import { Customer } from '../model/customer.model';
 import { CustomerApiService } from '../service/customer-api.service';
+import { CustomerFormUtilityService } from '../service/form-service';
 
 @Component({
   selector: 'app-layout',
@@ -17,14 +18,14 @@ export class SignupComponent implements OnInit, OnDestroy {
   public userSignupForm: FormGroup = this.fb.group({});
   @ViewChild('customerFormElem') customerFormElem!: ElementRef;
 
-  constructor(private fb: FormBuilder, private customerApiService: CustomerApiService) { }
+  constructor(private fb: FormBuilder, private customerApiService: CustomerApiService, private formService: CustomerFormUtilityService) { }
 
 
   public ngOnInit(): void {
     this.customerApiService.getQuestionnaires()
       .subscribe({
         next: (formData: JsonFormData | any) => {
-          this.createForm(formData.controls);
+          this.formService.createForm(formData.controls, this.userSignupForm, this.fb);
           this.jsonFormData = formData as JsonFormData;
         },
         error: (error: HttpErrorResponse) => {
